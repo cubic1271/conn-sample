@@ -59,9 +59,10 @@ int main(int argc, char *argv[])
     bool           dynamic_sampling = true;
 
     opterr = 0;
-    char c = 0; 
+    int c = 0; 
     while ((c = getopt (argc, argv, "d:hi:r:s:t:w:E:P:S:")) != -1)
     {
+
         switch (c)
             {
             case 'd':
@@ -99,6 +100,7 @@ int main(int argc, char *argv[])
                 fprintf (stderr, "Invalid option: either an argument is missing or this parameter is not known: `-%c'.\n", optopt);
                 return 1;
             default:
+		fprintf (stderr, "Unhandled option (%d).  Aborting ...\n", c);
                 abort();
             }
     }
